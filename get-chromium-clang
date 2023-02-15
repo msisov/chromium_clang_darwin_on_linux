@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [[  ${CLANG_REVISION} == "" ]]
+then
+    CLANG_FULL_REVISION=$(./get-chromium-clang-revision)
+fi
+
+echo $CLANG_FULL_REVISION
+
+# TODO(msisov): provide platform type. At the moment, mac/arm64 can only be downloaded.
+wget https://commondatastorage.googleapis.com/chromium-browser-clang/Mac_arm64/clang-${CLANG_FULL_REVISION}.tar.xz
